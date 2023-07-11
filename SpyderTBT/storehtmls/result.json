@@ -1,0 +1,53 @@
+{
+	"accordingterms": "2.9.2",
+	"accordingtermsArr": [
+		"2.9.2 ",
+		" 2.10.1 ",
+		" 5.6.2 ",
+		" 5.7.1 ",
+		" 3.2 ",
+		" 7.2 "
+	],
+	"accordingtermsEn": "2.9.2 [X], 2.10.1 [ ], 5.6.2 [ ], 5.7.1 [ ], 3.2 [ ], 7.2 [ ],",
+	"areaName": "日本",
+	"attaList": [
+		{
+			"fileName": "通报英文表格",
+			"filePath": "/wto/tbt/2023-06-28/",
+			"id": "74299",
+			"sysfilename": "JPN775.docx",
+			"tbtNo": "G/TBT/N/JPN/775"
+		}
+	],
+	"fileNo": "23-4412",
+	"hscode": "85",
+	"icscode": "35.110",
+	"napprdate": "2023年10月",
+	"neffedate": "2023年10月",
+	"productscovered": "无线局域网（WLAN）系统（2.4GHz频段）",
+	"purposereason": "该修订的理由为更新WLAN系统使用的2.4GHz频段。",
+	"relevantfile": "基本法律为无线电法（1950年，第131号法律）。\r\nhttps://www.japaneselawtranslation.go.jp/en/laws/view/3205\r\n获得通过时，修订将发布在“KAMPO”（政府官方公报）上公布（日语版）",
+	"responsibleorganization": "总务省",
+	"sourcelinkQt": "日本咨询点\r\n外务省经济事务局国际贸易处\r\n传真：(+81 3) 5501 8343\r\n电子邮箱：enquiry@mofa.go.jp\r\nhttps://members.wto.org/crnattachments/2023/TBT/JPN/23_10631_00_e.pdf",
+	"state": 9,
+	"stopfeedbackdate": "通报后60天",
+	"tbcontent": "       \t \t\t<p>对上述WLAN系统的法规进行修订。</p>\r\n        \t\t",
+	"tbdate": "2023-06-28",
+	"tblanguage": "英语",
+	"tblanguageYw": "英语",
+	"tbmembers": "007021",
+	"tbpage": "2页",
+	"tbtid": "",
+	"tbtitle": "部分修订无线电设备法规",
+	"tbtno": "G/TBT/N/JPN/775",
+	"tbtype": "1",
+	"xgList": [
+		{
+			"tbdate": "2023-07-03",
+			"tbtid": "4736864CF53A2E0A",
+			"tbtitle": "对无线电设备相关法规进行部分修订",
+			"tbtno": "G/TBT/N/JPN/775/Corr.1",
+			"tbtype": "3"
+		}
+	]
+}

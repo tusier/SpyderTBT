@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>中国WTO/TBT-SPS国家通报咨询网</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" type="image/x-icon" href="/custom/images/logo_icon.jpg"/>
+    <link rel="stylesheet" href="/components/swiper/swiper.2.7.6.css"/>
+    <link rel="stylesheet" href="/custom/css/commen.css"/>
+    <link rel="stylesheet" href="/custom/css/style.css"/>
+</head>
+<body>
+<div class="bg">
+    <div class="header_t">
+        <div class="w1200 clearfix">
+            <div class="lf">
+                <span id="calendarId"></span>
+                <span id="weekId"></span>
+            </div>
+            <div class="rt">
+                <span>|</span>
+                <a href="javascript:;" id="menu_english_btn">English</a>
+                <span>|</span>
+                <a href="javascript:;" id="menu_jm_btn">技贸网</a>
+            </div>
+            <div class="rt" id="login-div">
+                <a href="javascript:;" id="register_btn">用户注册</a>
+                <span>|</span>
+                <a href="javascript:;" id="login_btn">登录</a>
+            </div>
+            <div class="rt" id="logout-div" style="display: none">
+                <a href="javascript:;" id="login_info"></a>
+                <span>|</span>
+                <a href="javascript:;" id="logout_btn">退出</a>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="w1200">
+            <img src="/custom/images/banner.png" alt=""/>
+        </div>
+    </div>
+    <div class="header_b">
+        <ul class="nav w1200">
+            <li id="menu_home_btn">
+                首页
+                <div class="line"></div>
+            </li>
+            <li id="menu_news_btn">
+                新闻资讯
+                <div class="line"></div>
+            </li>
+            <li id="menu_tbtsps_btn">
+                TBT-SPS通报
+                <div class="line"></div>
+            </li>
+            <li id="menu_review_btn">
+                通报评议
+                <div class="line"></div>
+            </li>
+            <li id="menu_online_btn">
+                通报咨询
+                <div class="line"></div>
+            </li>
+            <li id="menu_advicereport_btn">
+                咨询点报告
+                <div class="line"></div>
+            </li>
+            <li id="menu_companywindow_btn">
+                企业之窗
+                <div class="line"></div>
+            </li>
+            <li id="menu_aboutus_btn">
+                关于我们
+                <div class="line"></div>
+            </li>
+        </ul>
+    </div>
+    <script src="/components/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/custom/js/head.js?ver=1"></script>
+
+    <input type="hidden" id="tbtid" value="CD7F5EB359636B19">
+    <div class="tbt-sps-table tbt-sps-table1 w1200">
+        <div class="top">
+            <div class="dt clearfix">
+                <div class="pl">世界贸易组织</div>
+                <div class="pr">
+                    <b id="tbtNo"></b>
+                    <p id="tbdate"></p>
+                    <p id="fileNo"></p>
+                </div>
+            </div>
+            <div class="db clearfix">
+                <b class="lf">技术性贸易壁垒</b>
+                <div class="rt" id="tblanguage_yw"></div>
+            </div>
+        </div>
+        <h3>通&nbsp;&nbsp;报</h3>
+        <p class="sub_t" id="nofenfa"></p>
+        <table class="content_table">
+            <tbody>
+            <tr>
+                <td>1.</td>
+                <td>
+                    <b>通报成员:</b>
+                    <span id="personName"></span>
+                    <br/>如可能，列出涉及的地方政府名称( 3.2条和7.2 条):
+                </td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td><b>负责机构:</b>
+                    <span id="responsibleorganization"></span></td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td><b>通报依据条款:</b>
+                    <br>
+                    <span id="accordingterms"></span>
+                    <br/>
+                    <b>通报依据的条款其他：</b>
+                    <span id="accordingtermsother"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td><b>覆盖的产品:</b>
+                    <span id="productscovered"></span>
+                    <br/>
+                    <b>HS编码:</b>
+                    <span id="hscode"></span>&nbsp;&nbsp;<b>ICS编码:</b>
+                    <span id="icscode"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>5.</td>
+                <td><b>通报标题:</b>
+                    <span id="tbtitle"></span><br/>
+                    <b>语言:</b>
+                    <span id="tblanguage"></span>&nbsp;&nbsp;<b>页数:</b>
+                    <span id="tbpage"></span>&nbsp;&nbsp;<b>链接地址:</b>
+                    <span id="linkurl"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>6.</td>
+                <td><b>内容简述:</b>
+                    <span id="tbcontent"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>7.</td>
+                <td><b>目标与理由:</b>
+                    <span id="purposereason"></span>&nbsp;<p id="otherharmfuldangers"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>8.</td>
+                <td><b>相关文件:</b>
+                    <span id="relevantfile"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>9.</td>
+                <td><b>拟批准日期:</b>
+                    <span id="napprdate"></span><br/>
+                    <b>拟生效日期:</b>
+                    <span id="neffedate"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>10.</td>
+                <td><b>意见反馈截止日期:</b>
+                    <span id="stopfeedbackdate"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>11.</td>
+                <td><b>文本可从以下机构得到:</b>
+                    <br>
+                    <span id="sourcelink"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table_c">
+            <tbody id="attaBody">
+            </tbody>
+        </table>
+    </div>
+    <div id="xgTable">
+        <div class="table_t w1200">相关通报列表</div>
+        <table class="table_b w1200">
+            <thead>
+            <tr>
+                <th>通报号</th>
+                <th>通报标题</th>
+                <th>通报类型</th>
+                <th>通报时间</th>
+            </tr>
+            </thead>
+            <tbody id="xgTbody">
+
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">
+        <div>
+            <p><span>版权所有：中华人民共和国 WTO/TBT-SPS 国家通报咨询中心</span></p>
+            <p style="padding-top:10px;"><span><a href="https://beian.miit.gov.cn/"
+                                                  target="_blank">京ICP备09069797号-1</a>&nbsp;&nbsp;&nbsp;&nbsp;京公网安备：11010102006538</span>
+            </p>
+            <p style="padding-top:10px;"><span>技术维护：海关总署国际检验检疫标准与技术法规研究中心</span></p>
+        </div>
+        <script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='https://dcs.conac.cn/js/33/000/0000/61068779/CA330000000610687790002.js' type='text/javascript'%3E%3C/script%3E"));</script>
+    </div>
+    <div class="loading" id="loading_id">
+        <div class="mask"></div>
+        <img src="/custom/images/load.gif" alt=""/>
+    </div>
+</div>
+<script src="/components/swiper/swiper.2.7.6.js"></script>
+<script src="/components/security/js/crypto-js.min.js"></script>
+<script src="/custom/js/common.js?ver=1"></script>
+<script type="text/javascript">
+    var path = '';
+    var imagespath = '/custom/images';
+    //富文本远程图片访问域名
+    var baseFilePath = "http://files.tbtsps.cn";
+
+    var baseUrl = 'http://files.tbtsps.cn';
+</script>
+
+
+<script src="/custom/js/common.js?ver=1"></script>
+<script>
+    $(function () {
+
+        //设置菜单选中背景
+        setActivity("menu_tbtsps_btn");
+
+        $("#xgTable").hide();
+
+        let tbtid = $("#tbtid").val();
+        $.ajax({
+            url: path + '/tbt/' + tbtid,
+            type: "POST",
+            success: function (result) {
+                if (result.code == 200) {
+                    let info = _OOIio(result.data);
+                    $("#tbdate").text(info.tbdate);
+                    $("#tbtNo").text(info.tbtno);
+                    $("#fileNo").text(info.fileNo);
+                    let tblanguageContent = "原文：" + (info.tblanguageYw == undefined ? "" : info.tblanguageYw);
+                    $("#tblanguage_yw").text(tblanguageContent);
+
+                    let nofenfaContent = "";
+                    if (info.nofenfa != null && info.nofenfa.length() > 0) {
+                        nofenfaContent = "以下通报根据TBT协定第" + info.nofenfa + "条分发";
+                    } else {
+                        nofenfaContent = "以下通报根据TBT协定第10.6条分发";
+                    }
+                    $("#nofenfa").text(nofenfaContent);
+
+                    $("#personName").text(info.areaName);
+                    $("#responsibleorganization").text(info.responsibleorganization);
+                    let accordingtermsContent = "";
+                    let accordingterms = info.accordingterms;
+                    if (!isEmpty(info.accordingtermsEn)) {
+                        let accordingtermArr = info.accordingtermsArr;
+                        for (let i = 0; i < accordingtermArr.length; i++) {
+                            let accordingterm = accordingtermArr[i].trim();
+                            if (!isEmpty(accordingterm)) {
+                                if (!isEmpty(accordingterms) && accordingterms.indexOf(accordingterm) > -1) {
+                                    accordingtermsContent += "[X] " + accordingterm + "<br>";
+                                } else {
+                                    accordingtermsContent += "[ ] " + accordingterm + "<br>";
+                                }
+                            }
+                        }
+                    } else {
+                        if (!isEmpty(accordingterms)) {
+                            if (accordingterms.indexOf("2.9.2") > -1) {
+                                accordingtermsContent += "[X] 2.9.2<br>";
+                            } else {
+                                accordingtermsContent += "[ ] 2.9.2<br>";
+                            }
+                            if (accordingterms.indexOf("2.10.1") > -1) {
+                                accordingtermsContent += "[X] 2.10.1<br>";
+                            } else {
+                                accordingtermsContent += "[ ] 2.10.1<br>";
+                            }
+                            if (accordingterms.indexOf("5.6.2") > -1) {
+                                accordingtermsContent += "[X] 5.6.2<br>";
+                            } else {
+                                accordingtermsContent += "[ ] 5.6.2<br>";
+                            }
+                            if (accordingterms.indexOf("5.7.1") > -1) {
+                                accordingtermsContent += "[X] 5.7.1<br>";
+                            } else {
+                                accordingtermsContent += "[ ] 5.7.1<br>";
+                            }
+                        } else {
+                            accordingtermsContent += "[ ] 2.9.2<br>";
+                            accordingtermsContent += "[ ] 2.10.1<br>";
+                            accordingtermsContent += "[ ] 5.6.2<br>";
+                            accordingtermsContent += "[ ] 5.7.1<br>";
+                        }
+                    }
+                    $("#accordingterms").html(accordingtermsContent);
+                    $("#accordingtermsother").text(info.accordingtermsother);
+                    $("#productscovered").text(info.productscovered);
+                    $("#hscode").text(info.hscode);
+                    $("#icscode").text(info.icscode);
+                    $("#tbtitle").text(info.tbtitle);
+                    $("#tblanguage").text(info.tblanguage);
+                    $("#tbpage").text(info.tbpage);
+                    $("#linkurl").text(info.linkurl);
+                    $("#tbcontent").html(info.tbcontent);
+                    $("#purposereason").text(info.purposereason);
+                    $("#otherharmfuldangers").text(info.otherharmfuldangers);
+                    $("#relevantfile").text(info.relevantfile);
+                    $("#napprdate").text(info.napprdate);
+                    $("#neffedate").text(info.neffedate);
+                    $("#stopfeedbackdate").text(info.stopfeedbackdate);
+                    let sourcelinkContent = "";
+                    let sourcelink = info.sourcelink;
+                    if (null != sourcelink && sourcelink.indexOf('国家通报机构') > -1) {
+                        sourcelinkContent += "[X] 国家通报机构<br>";
+                    } else {
+                        sourcelinkContent += "[ ] 国家通报机构<br>";
+                    }
+                    if (null != sourcelink && sourcelink.indexOf('国家咨询点') > -1) {
+                        sourcelinkContent += "[X] 国家咨询点，或其他机构的联系地址、传真及电子邮件地址(如能提供):";
+                    } else {
+                        sourcelinkContent += "[ ] 国家咨询点，或其他机构的联系地址、传真及电子邮件地址(如能提供):";
+                    }
+                    if (info.sourcelinkQt != null) {
+                        sourcelinkContent += "<br>" + info.sourcelinkQt;
+                    }
+                    $("#sourcelink").html(sourcelinkContent);
+
+                    let attaList = info.attaList;
+                    let attaHtml = "";
+                    if (attaList != null) {
+                        for (let i = 1; i <= attaList.length; i++) {
+                            let atta = attaList[i - 1];
+                            attaHtml += '<tr>\n' +
+                                '           <td>' + i + '</td>\n' +
+                                '           <td>' + atta.fileName + '</td>\n' +
+                                '           <td><a href="javascript:loadFile(\'' + atta.filePath + '/' + atta.sysfilename + '\');">' + atta.sysfilename + '</a></td>\n' +
+                                '        </tr>';
+                        }
+                        $("#attaBody").html(attaHtml);
+                    }
+
+                    let xgList = info.xgList;
+                    if (null != xgList && xgList.length > 0) {
+                        $("#xgTable").show();
+                        let tbodyHtml = "";
+                        for (let i = 0; i < xgList.length; i++) {
+                            let xgObj = xgList[i];
+                            let tbtype = xgObj.tbtype;
+                            let tbtypeDes = "";
+                            switch (parseInt(tbtype)) {
+                                case 1:
+                                    tbtypeDes = "常规通报";
+                                    break;
+                                case 2:
+                                    tbtypeDes = "常规通报补遗";
+                                    break;
+                                case 3:
+                                    tbtypeDes = "常规通报勘误";
+                                    break;
+                                case 4:
+                                    tbtypeDes = "常规通报修订";
+                                    break;
+                                case 7:
+                                    tbtypeDes = "通报补遗勘误";
+                                    break;
+                                case 8:
+                                    tbtypeDes = "通报补遗修订";
+                                    break;
+                                case 9:
+                                    tbtypeDes = "通报修订补遗";
+                                    break;
+                                case 10:
+                                    tbtypeDes = "协议通报";
+                                    break;
+                                default:
+                                    break;
+
+                            }
+                            tbodyHtml += '   <tr>\n' +
+                                '                <td>' + xgObj.tbtno + '</td>\n' +
+                                '                <td><a href="javascript:read(\'' + xgObj.tbtid + '\',' + xgObj.tbtype + ');">' + xgObj.tbtitle + '</a></td>\n' +
+                                '                <td>' + tbtypeDes + '</td>\n' +
+                                '                <td>' + xgObj.tbdate + '</td>\n' +
+                                '            </tr>'
+                        }
+                        $("#xgTbody").html(tbodyHtml);
+                    }
+                } else {
+                }
+            },
+            error: function (message) {
+            }
+        })
+    })
+
+    function read(id, type) {
+        window.open(path + "/tbt/" + type + "/" + id);
+    }
+
+    function loadFile(filepath) {
+        window.location.href = path + "/file/downloadFile?path=" + baseFilePath + filepath;
+    }
+</script>
+</body>
+</html>
