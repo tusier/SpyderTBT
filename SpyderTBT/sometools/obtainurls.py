@@ -41,28 +41,20 @@ class ObtainUrls:
 
     def requestTBT(self):
         # 一共1459页 ，每页20条 在data里循环，每次data里的page+1
-
-        # data={"keyword":"","productsCovered":"","members":"","hsCode":"","purposeReason":"","affectedcorrQt":"","responsibleorganization":"","icsCode":"","startTbdate":"","endTbdate":"","page":1,"type":3,"rows":20}
-
         listresitem = []
         url = 'http://www.tbt-sps.gov.cn/tbt/find'
         for i in range(1, 5):  # 暂时爬这几页
-
             data = {"keyword": "", "productsCovered": "", "members": "", "hsCode": "", "purposeReason": "",
                     "affectedcorrQt": "", "responsibleorganization": "", "icsCode": "", "startTbdate": "",
                     "endTbdate": "", "page": i, "type": 1, "rows": 20}
             requests.post('http://www.tbt-sps.gov.cn/visit/78')
             response = requests.post(url=url, headers=self.headers, json=data)
-            print(response.text)
-
             responsejson = json.loads(response.text)
             responsejson = responsejson['data']['data']
-            print(response)
-            print("response的值为上面")
+
             for item in responsejson:
                 resitem = responseItem()
-                print(item)
-                print("item的值为上面")
+
                 resitem['areaName'] = item['areaName']
                 resitem['spsid'] = item['spsid'] if 'spsid' in item else item['tbtid']
                 resitem['tbdate'] = item['tbdate']
@@ -76,8 +68,26 @@ class ObtainUrls:
 
     def requestTBTC2F(self):  # china to foreign
         listresitems = []
-        url = 'http://www.tbt-sps.gov.cn/sps/find'
+        url = 'http://www.tbt-sps.gov.cn/tbt/find'
         for i in range(1, 5):  # 暂时爬这几页
             data = {"keyword": "", "productsCovered": "", "members": "", "hsCode": "", "purposeReason": "",
                     "affectedcorrQt": "", "responsibleorganization": "", "icsCode": "", "startTbdate": "",
-                    "endTbdate": "", "page": i, "type": "3", "rows": 20}
+                    "endTbdate": "", "page": i, "type": "2", "rows": 20}
+            requests.post('http://www.tbt-sps.gov.cn/visit/79')
+            response = requests.post(url=url, headers=self.headers, json=data)
+            responsejson = json.loads(response.text)
+            responsejson = responsejson['data']['data']
+
+            for item in responsejson:
+                resitem = responseItem()
+
+                resitem['areaName'] = item['areaName']
+                resitem['spsid'] = item['spsid'] if 'spsid' in item else item['tbtid']
+                resitem['tbdate'] = item['tbdate']
+                resitem['tbtitle'] = item['tbtitle']
+                resitem['tbtno'] = item['tbtno']
+                resitem['tbtype'] = item['tbtype']
+
+                listresitems.append(resitem)
+            time.sleep(2)
+        return listresitems
