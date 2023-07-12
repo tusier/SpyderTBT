@@ -96,7 +96,7 @@ class TbtspsSpider(scrapy.Spider):
             notificate['status'] = '0'
             notificate['insert_time'] = ''
             notificate['xbt_b'] = ''
-            self.red.sadd('tbt:start_urls', response.url)
+            self.red.sadd('tbt:tbtF2C_Url', response.url)
             yield notificate
 
 

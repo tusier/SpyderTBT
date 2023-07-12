@@ -38,7 +38,7 @@ class Tbtc2fSpider(scrapy.Spider):
             yield scrapy.Request(url=completeurl, headers=self.headers, callback=self.parse)
 
     def parse(self, response, **kwargs):
-        result = self.red.sismember('tbt:tbtC2F_Url', response.url)
+        result = self.red.sismember('tbt:tbtC2F_Url', response.url) # 这里是去重，虽然scrapy天然去重，但姑且做一下
         if result:
             print("已经爬过了")
         else:
