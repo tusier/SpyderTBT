@@ -25,10 +25,8 @@ class Spsc2fSpider(scrapy.Spider):
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
                         }
 
-
     def start_requests(self):
         obtain = ObtainUrls()
-        print('cool')
         spslist = obtain.requestSPSC2F()
         for i in range(0, len(spslist)):
             areaName = spslist[i]["areaName"]
@@ -39,7 +37,6 @@ class Spsc2fSpider(scrapy.Spider):
             tbtype = spslist[i]["tbtype"]
             completeurl = "http://www.tbt-sps.gov.cn/sps/" + tbtype + "/" + spsid
             yield scrapy.Request(url=completeurl, headers=self.headers, callback=self.parse)
-
 
     def parse(self, response, **kwargs):
         result = self.red.sismember('tbt:spsC2F_Url', response.url)
