@@ -14,7 +14,7 @@ tbtF2cDto = tbtF2Cdal()
 
 class SpydertbtPipeline:
     def process_item(self, item, spider):
-        if isinstance(item, TBTNotificationItem):
+        # if isinstance(item, TBTNotificationItem):
             tbtF2cDto.inserttbtF2C(item)
-        else:
-            pass
+
+

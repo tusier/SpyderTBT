@@ -1,8 +1,7 @@
 from configparser import ConfigParser
-from redis import Redis
-
 
 import scrapy
+from redis import Redis
 
 from SpyderTBT.items import TBTNotificationItem
 from SpyderTBT.sometools.obtainurls import ObtainUrls
