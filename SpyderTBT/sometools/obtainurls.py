@@ -51,7 +51,7 @@ class ObtainUrls:
         # 一共1459页 ，每页20条 在data里循环，每次data里的page+1
         listresitem = []
         url = 'http://www.tbt-sps.gov.cn/tbt/find'
-        for i in range(1, 10):  # 暂时爬这几页
+        for i in range(1, 1000):  # 暂时爬这几页
             data = {"keyword": "", "productsCovered": "", "members": "", "hsCode": "", "purposeReason": "",
                     "affectedcorrQt": "", "responsibleorganization": "", "icsCode": "", "startTbdate": "",
                     "endTbdate": "", "page": i, "type": 1, "rows": 20}
