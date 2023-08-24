@@ -16,7 +16,7 @@ print(redis_host)
 
 
 class TbtspsSpider(scrapy.Spider):
-    name = "tbtsps"
+    name = "tbtF2C"
     allowed_domains = ["www.tbt-sps.gov.cn"]
     start_urls = ["http://www.tbt-sps.gov.cn/"]
 
