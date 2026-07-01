@@ -6,13 +6,13 @@ from redis import Redis
 from ..items import TBTNotificationItem
 from ..sometools.obtainurls import ObtainUrls
 
-config = ConfigParser()
-config.read('scrapy.cfg')
-redis_host = config.get('redis', 'host')
-redis_port = int(config.get('redis', 'port'))
-redis_password = config.get('redis', 'password')
-redis_db = int(config.get('redis', 'db'))
-print(redis_host)
+# config = ConfigParser()
+# config.read('scrapy.cfg')
+# redis_host = config.get('redis', 'host')
+# redis_port = int(config.get('redis', 'port'))
+# redis_password = config.get('redis', 'password')
+# redis_db = int(config.get('redis', 'db'))
+# print(redis_host)
 
 
 class TbtspsSpider(scrapy.Spider):
@@ -21,7 +21,7 @@ class TbtspsSpider(scrapy.Spider):
     start_urls = ["http://www.tbt-sps.gov.cn/"]
 
     def __init__(self, name=None, **kwargs):
-        self.red = Redis(host=redis_host, port=redis_port, password=redis_password, db=redis_db)
+        # self.red = Redis(host=redis_host, port=redis_port, password=redis_password, db=redis_db)
         super(TbtspsSpider, self).__init__(name, **kwargs)
         self.headers = {'Host': 'www.tbt-sps.gov.cn',
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
@@ -48,11 +48,11 @@ class TbtspsSpider(scrapy.Spider):
 
     def parse(self, response, **kwargs):
 
-        result = self.red.sismember('tbt:tbtF2C_Url', response.url)
-        if result:
-            print("已经爬取过了")
-            # self.red.delete('tbt:start_urls')
-        else:
+        # result = self.red.sismember('tbt:tbtF2C_Url', response.url)
+        # if result:
+        #     print("已经爬取过了")
+        #     # self.red.delete('tbt:start_urls')
+        # else:
             # 直接取值会发现是空的，返回内容可以看 storehtmls里的target.html
             # 解析js后发现有一行 let info = _OOIio(result.data);
             # 所以需要先解析js
@@ -96,7 +96,7 @@ class TbtspsSpider(scrapy.Spider):
             notificate['status'] = '0'
             notificate['insert_time'] = ''
             notificate['xbt_b'] = ''
-            self.red.sadd('tbt:tbtF2C_Url', response.url)
+            # self.red.sadd('tbt:tbtF2C_Url', response.url)
             yield notificate
 
 

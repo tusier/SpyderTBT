@@ -44,3 +44,13 @@ class TBTNotificationItem(scrapy.Item):
     status = scrapy.Field()
     insert_time = scrapy.Field()
     xbt_b = scrapy.Field()
+
+
+class TBTNoticeItem(scrapy.Item):
+    title=scrapy.Field()
+    content=scrapy.Field()
+    release_date=scrapy.Field()
+    plate=scrapy.Field()
+    source=scrapy.Field()
+    status=scrapy.Field()
+    create_at=scrapy.Field()

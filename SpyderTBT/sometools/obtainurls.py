@@ -47,16 +47,24 @@ class ObtainUrls:
         aesdecode = AESCipher()
         return aesdecode.decrypt_data(data)
 
+    def obtainnoticeData(self, spsid):
+        url = 'http://www.tbt-sps.gov.cn/news/' + str(spsid)
+        response = requests.post(url=url, headers=self.headers)
+        print(response.text)
+        data = json.loads(response.text)['data']
+        aesdecode = AESCipher()
+        return aesdecode.decrypt_data(data)
     def requestTBT(self):
         # 一共1459页 ，每页20条 在data里循环，每次data里的page+1
         listresitem = []
         url = 'http://www.tbt-sps.gov.cn/tbt/find'
-        for i in range(1, 1000):  # 暂时爬这几页
+        for i in range(1, 10):  # 暂时爬这几页
             data = {"keyword": "", "productsCovered": "", "members": "", "hsCode": "", "purposeReason": "",
                     "affectedcorrQt": "", "responsibleorganization": "", "icsCode": "", "startTbdate": "",
                     "endTbdate": "", "page": i, "type": 1, "rows": 20}
             requests.post('http://www.tbt-sps.gov.cn/visit/78')
             response = requests.post(url=url, headers=self.headers, json=data)
+            print(response.text)
             responsejson = json.loads(response.text)
             responsejson = responsejson['data']['data']
 
@@ -74,13 +82,29 @@ class ObtainUrls:
             time.sleep(2)
         return listresitem
 
+    def requestNotices(self):
+        listresitem = []
+        url = 'http://www.tbt-sps.gov.cn/news/find'
+        for i in range(1, 10):
+            data={"title":"","startPublishDate":"","endPublishDate":"","page":i,"type":1,"rows":20}
+            responce=requests.post(url=url,headers=self.headers,json=data)
+            print(responce.text)
+            responcejson=json.loads(responce.text)
+            responcejson=responcejson['data']['data']
+            for item in responcejson:
+                resitem=responseItem()
+                resitem['spsid'] = item['id']
+                listresitem.append(resitem)
+            time.sleep(2)
+        return listresitem
+
     def requestTBTC2F(self):  # china to foreign
         listresitems = []
         url = 'http://www.tbt-sps.gov.cn/tbt/find'
-        for i in range(1, 100):  # 暂时爬这几页
+        for i in range(1, 10):  # 暂时爬这几页
             data = {"keyword": "", "productsCovered": "", "members": "", "hsCode": "", "purposeReason": "",
                     "affectedcorrQt": "", "responsibleorganization": "", "icsCode": "", "startTbdate": "",
-                    "endTbdate": "", "page": i, "type": "2", "rows": 20}
+                    "endTbdate": "", "page": i, "type": 2, "rows": 20}
             requests.post('http://www.tbt-sps.gov.cn/visit/79')
             response = requests.post(url=url, headers=self.headers, json=data)
             responsejson = json.loads(response.text)
@@ -103,10 +127,10 @@ class ObtainUrls:
     def requestSPSF2C(self):
         listresitems = []
         url = 'http://www.tbt-sps.gov.cn/sps/find'
-        for i in range(1, 1000):  # 暂时爬这几页
+        for i in range(1, 10):  # 暂时爬这几页
             data = {"keyword": "", "productsCovered": "", "members": "", "hsCode": "", "purposeReason": "",
                     "affectedcorrQt": "", "responsibleorganization": "", "icsCode": "", "startTbdate": "",
-                    "endTbdate": "", "page": i, "type": "3", "rows": 20}
+                    "endTbdate": "", "page": i, "type": 3, "rows": 20}
             requests.post('http://www.tbt-sps.gov.cn/visit/80')
             response = requests.post(url=url, headers=self.headers, json=data)
             responsejson = json.loads(response.text)
@@ -114,7 +138,7 @@ class ObtainUrls:
 
             for item in responsejson:
                 resitem = responseItem()
-                resitem['areaName'] = item['areaName']
+                resitem['areaName'] = item.get('areaName', '')
                 resitem['spsid'] = item['spsid'] if 'spsid' in item else item['tbtid']
                 resitem['tbdate'] = item['tbdate']
                 resitem['tbtitle'] = item['tbtitle']
@@ -128,16 +152,17 @@ class ObtainUrls:
     def requestSPSC2F(self):
         listresitems = []
         url = 'http://www.tbt-sps.gov.cn/sps/find'
-        for i in range(5,1000):  # 暂时爬这几页
+        for i in range(1,10):  # 暂时爬这几页
             data = {"keyword": "", "productsCovered": "", "members": "", "hsCode": "", "purposeReason": "",
                     "affectedcorrQt": "", "responsibleorganization": "", "icsCode": "", "startTbdate": "",
-                    "endTbdate": "", "page": i, "type": "4", "rows": 20}
+                    "endTbdate": "", "page": i, "type": 4, "rows": 20}
             requests.post('http://www.tbt-sps.gov.cn/visit/81')
+
             print('cool')
             response = requests.post(url=url, headers=self.headers, json=data)
             responsejson = json.loads(response.text)
             responsejson = responsejson['data']['data']
-
+            print(responsejson)
             for item in responsejson:
                 resitem = responseItem()
                 resitem['areaName'] = item['areaName']

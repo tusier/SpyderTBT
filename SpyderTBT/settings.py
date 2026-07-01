@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = "SpyderTBT.spiders"
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-# CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 8
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -65,6 +65,11 @@ ITEM_PIPELINES = {
     "SpyderTBT.pipelines.SpydertbtPipeline": 300,
 }
 
+RETRY_ENABLED = True           # 开启重试
+RETRY_TIMES = 3                # 重试次数设定为 3 次
+RETRY_HTTP_CODES = [500, 502, 503, 504, 408, 429] # 遇到这些状态码自动重试
+# 可选：如果请求超时也需要重试，可以适当增加超时时间
+DOWNLOAD_TIMEOUT = 15
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 # AUTOTHROTTLE_ENABLED = True
@@ -90,3 +95,10 @@ ITEM_PIPELINES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'application/json, text/plain, */*',
+  'Accept-Language': 'zh-CN,zh;q=0.9',
+  'Origin': 'http://www.tbtsps.cn',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+}

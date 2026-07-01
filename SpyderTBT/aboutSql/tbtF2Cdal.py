@@ -11,6 +11,18 @@ class tbtF2Cdal:
     def closesession(self):
         self.session.close()
 
+    def checkexist(self, item):
+        result = self.session.query(NqiWtoNotification).filter(NqiWtoNotification.tbh == item.get('tbh', '')).first()
+
+        if result is not None:
+            # 处理存在记录的情况
+            print(f"存在记录，tbh为 {result.tbh}")
+            return False
+        else:
+            # 处理不存在记录的情况
+            print("不存在记录")
+            return True
+
     def inserttbtF2C(self, item):
         nqi_wto_notification = NqiWtoNotification()
         nqi_wto_notification.tbh = item.get('tbh', '')

@@ -1,3 +1,4 @@
-a=0.1
-print(a+a+a)
-print(type(a))  # <class 'float'>
+import requests
+
+result=requests.get('https://www.sac.gov.cn/xw/tzgg/index.html')
+print(result.text)
